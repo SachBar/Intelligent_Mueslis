@@ -1,0 +1,12 @@
+item,support,confidence
+"{'Cornflakes', 'Crunchy', 'Sunflower seeds'}",0.8181818181818182,1.0
+"{'Cornflakes', 'Crunchy'}",0.8181818181818182,1.0
+"{'Cornflakes', 'Sunflower seeds'}",1.0,1.0
+"{'Crunchy', 'Sunflower seeds'}",0.8181818181818182,1.0
+"{'Peanuts', 'Cornflakes', 'Crunchy', 'Sunflower seeds'}",0.8181818181818182,1.0
+"{'Peanuts', 'Cornflakes', 'Crunchy'}",0.8181818181818182,1.0
+"{'Peanuts', 'Cornflakes', 'Sunflower seeds'}",1.0,1.0
+"{'Peanuts', 'Cornflakes'}",1.0,1.0
+"{'Peanuts', 'Crunchy', 'Sunflower seeds'}",0.8181818181818182,1.0
+"{'Peanuts', 'Crunchy'}",0.8181818181818182,1.0
+"{'Peanuts', 'Sunflower seeds'}",1.0,1.0
