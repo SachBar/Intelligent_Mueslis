@@ -12,8 +12,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
-from sklearn.mixture import GaussianMixture as GMM
-from collections import defaultdict
 import random as rd
 import csv
 
@@ -189,7 +187,7 @@ def getDatabase(fileName, skiprows=[], colsDrop=[]):
     extractedData.to_csv(fileName, header=extractedData.columns, index=False)
 
 
-#getDatabase('cleanDatabase.csv', skiprows, colsDrop)    
+getDatabase('cleanDatabase.csv', skiprows, colsDrop)    
 
 
 # Call this whenever you want to get rules from a database and save them in another DB
@@ -200,7 +198,7 @@ def aprioriRules(binthreshold=7):
                'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
                'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
                'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
-               'Vanilla', 'Dry fruit', 'Dry berries']
+               'Vanilla', 'Dry fruit']
     DataExtract = DataExtractor()
     breakfastDF = DataExtract.loaddata('cleanDatabase.csv')
     Apriori = aprioriExtraction(breakfastDF, ingredients)
@@ -219,12 +217,11 @@ def performClustering(cleanBreakfastDB, nProfiles=5):
            'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
            'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
            'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
-           'Vanilla', 'Dry fruit', 'Dry berries']
+           'Vanilla', 'Dry fruit']
     DataExtract = DataExtractor()
     X = DataExtract.loaddata(cleanBreakfastDB)
     DataPrep = DataPreprocess(X)
     Xkcoded = DataPrep.oneoutofK('Disease')
-    print(Xkcoded.head())
     Xstandardized, Xmean, Xvar = DataPrep.standardize(Xkcoded)    
     stdMeals = standardMeals(Xstandardized, ingredients)
     customerProfiles = stdMeals.clusterProfiles(nProfiles)
@@ -239,7 +236,7 @@ def performClustering(cleanBreakfastDB, nProfiles=5):
     stdMeals.visualizeClustering()
 
     
-#performClustering('cleanDatabase.csv')
+performClustering('cleanDatabase.csv')
 # App calls this function whenever we want to recommend a meal (clustering) to a user
 
 """ User Profile must be in the form of a row in 'cleanDatabase.csv """
@@ -249,7 +246,7 @@ def recommendMeal(userProfile):
        'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
        'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
        'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
-       'Vanilla', 'Dry fruit', 'Dry berries']
+       'Vanilla', 'Dry fruit']
     DataExtract = DataExtractor()
     clusterCentres = DataExtract.loaddata('clusterCentres.csv')
     cleanDB = DataExtract.loaddata('cleanDatabase.csv')
@@ -277,10 +274,17 @@ def recommendMeal(userProfile):
     return muesliCombos
     
 """ Input from client/app """    
-userProfileData =  np.array([1,55,80,None,1,9,1,10,10,10,10,2,6,6,2,3,5,9,8,8,9,1,4,0,8,8]).reshape(1,26)
+userProfileData =  np.array([1,55,80,None,1,9,1,10,10,10,10,2,6,6,2,3,5,9,8,8,9,1,4,0,8]).reshape(1,25)
 
 
 """ Output set from server """
 muesliCombos=recommendMeal(userProfileData)    
 #for meal in muesliCombos:
 #    print(meal)
+
+
+    
+
+
+
+
