@@ -132,7 +132,7 @@ class standardMeals:
         return customerProfilesDF.iloc[standardMuesliGroup], standardMuesliGroup
 
     def generateMuesliCombos(self, customerProfilesDF):
-        standardMuesliDFs = customerProfilesDF[ingredients] > 4
+        standardMuesliDFs = customerProfilesDF[self.ingredients] > 3
         muesliCombos = []
         for i in range (len(standardMuesliDFs.index)):
             muesliCombos.append((standardMuesliDFs.columns[(standardMuesliDFs == True).iloc[i]]).tolist())
@@ -142,15 +142,19 @@ class standardMeals:
     def generateCustomCombos(self, muesliCombos):
         numIng = len(muesliCombos) 
         cerealList = ['Oats', 'Crunchy', 'Cornflakes']
-        meal1 = rd.sample(muesliCombos, int(numIng/4))
-        meal2 = rd.sample(muesliCombos, int(numIng/4))
-        meal3 = rd.sample(muesliCombos, int(numIng/4))
+        meal1 = rd.sample(muesliCombos, int(numIng/2))
+        meal2 = rd.sample(muesliCombos, int(numIng/2))
+        meal3 = rd.sample(muesliCombos, int(numIng/2))
         if 'Oats' and 'Crunchy' and 'Cornflakes' not in meal1:
             meal1.append(rd.choice(cerealList))
         if 'Oats' and 'Crunchy' and 'Cornflakes' not in meal2:
             meal2.append(rd.choice(cerealList))
         if 'Oats' and 'Crunchy' and 'Cornflakes' not in meal3:
             meal3.append(rd.choice(cerealList))
+        # Remove empty items
+        meal1 = [x for x in meal1 if x.strip()]
+        meal2 = [x for x in meal2 if x.strip()]
+        meal3 = [x for x in meal3 if x.strip()]
         return set(meal1), set(meal2), set(meal3)   
 
 
@@ -167,11 +171,6 @@ def sendRecommendation(meal1, meal2 , meal3):
 
 ########################################################################################
     # This information needs to be stored in the server somewhat
-ingredients = ['Oats', 'Cornflakes', 'Crunchy', 'Peanuts',	'Almonds', 'Walnuts',	
-               'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
-               'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
-               'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
-               'Vanilla', 'Dry fruit', 'Dry berries']
 skiprows = [0,1,2]
 colsDrop = 'Weekday'
 ########################################################################################
@@ -190,15 +189,20 @@ def getDatabase(fileName, skiprows=[], colsDrop=[]):
     extractedData.to_csv(fileName, header=extractedData.columns, index=False)
 
 
-getDatabase('cleanDatabase.csv', skiprows, colsDrop)    
+#getDatabase('cleanDatabase.csv', skiprows, colsDrop)    
 
 
 # Call this whenever you want to get rules from a database and save them in another DB
 # I also return them in a variable: ingredientRules
 
-def aprioriRules(ingredients, breakfastDB, binthreshold=7):
+def aprioriRules(binthreshold=7):
+    ingredients = ['Oats', 'Cornflakes', 'Crunchy', 'Peanuts',	'Almonds', 'Walnuts',	
+               'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
+               'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
+               'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
+               'Vanilla', 'Dry fruit', 'Dry berries']
     DataExtract = DataExtractor()
-    breakfastDF = DataExtract.loaddata(breakfastDB)
+    breakfastDF = DataExtract.loaddata('cleanDatabase.csv')
     Apriori = aprioriExtraction(breakfastDF, ingredients)
     AprioriDF = Apriori.getAprioriDF(binthreshold)
     ingredientRules = Apriori.aprioriFormat(AprioriDF)
@@ -206,11 +210,16 @@ def aprioriRules(ingredients, breakfastDB, binthreshold=7):
     ingredientRulesDF.to_csv('aprioriIngredients.csv', index=False, header=False)
     return ingredientRules
 
-aprioriRules(ingredients, 'cleanDatabase.csv')
+ingredientRules = aprioriRules()
 
 
 
-def performClustering(cleanBreakfastDB, ingredients, nProfiles=5):
+def performClustering(cleanBreakfastDB, nProfiles=5):
+    ingredients = ['Oats', 'Cornflakes', 'Crunchy', 'Peanuts',	'Almonds', 'Walnuts',	
+           'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
+           'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
+           'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
+           'Vanilla', 'Dry fruit', 'Dry berries']
     DataExtract = DataExtractor()
     X = DataExtract.loaddata(cleanBreakfastDB)
     DataPrep = DataPreprocess(X)
@@ -230,19 +239,36 @@ def performClustering(cleanBreakfastDB, ingredients, nProfiles=5):
     stdMeals.visualizeClustering()
 
     
-
+#performClustering('cleanDatabase.csv')
 # App calls this function whenever we want to recommend a meal (clustering) to a user
 
 """ User Profile must be in the form of a row in 'cleanDatabase.csv """
 """ Need a global variable called ingredients in server """
 def recommendMeal(userProfile):
+    ingredients = ['Oats', 'Cornflakes', 'Crunchy', 'Peanuts',	'Almonds', 'Walnuts',	
+       'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
+       'Pumpkin seeds',	'Raisins' ,'Coconut flakes',	
+       'Cocoa beans', 'Protein powder',	'Cacao', 'Cinnamon', 
+       'Vanilla', 'Dry fruit', 'Dry berries']
     DataExtract = DataExtractor()
     clusterCentres = DataExtract.loaddata('clusterCentres.csv')
     cleanDB = DataExtract.loaddata('cleanDatabase.csv')
+    # Need to one-out-of-k code an observation
+    diseasecols = [s for s in list(clusterCentres.columns) if "Disease" in s]
     userProfileDF = pd.DataFrame(userProfile, columns=cleanDB.columns)
+    userProfileDisease = str(userProfileDF['Disease'].iloc[0])
+    diseaseDict = dict()
+    for disease in diseasecols:
+        diseaseDict[disease] = [0]
+        if userProfileDisease in disease:
+            diseaseDict[disease] = [1]
+    diseaseDF = pd.DataFrame.from_dict(diseaseDict)
+    userProfileDFk = userProfileDF.drop('Disease', axis=1)
+    DFs = [userProfileDFk, diseaseDF]
+    userProfileDF = pd.concat(DFs, axis=1)
+    # User profile is now one-out-of-k coded
     stdMeals = standardMeals(clusterCentres, ingredients)
     muesliCluster, muesliGroup = stdMeals.predictMuesliCluster(clusterCentres, userProfileDF)
-
     with open('muesliClusters.csv', 'r') as f:
         reader = csv.reader(f)
         muesliClusters = list(reader)
@@ -251,17 +277,10 @@ def recommendMeal(userProfile):
     return muesliCombos
     
 """ Input from client/app """    
-userProfileData =  np.array([1,30,64,None,2,9,5,5,7,6,3,4,6,6,2,3,5,3,8,2,9,1,4,8,8,8]).reshape(1,26)
+userProfileData =  np.array([1,55,80,None,1,9,1,10,10,10,10,2,6,6,2,3,5,9,8,8,9,1,4,0,8,8]).reshape(1,26)
 
 
 """ Output set from server """
 muesliCombos=recommendMeal(userProfileData)    
-for meal in muesliCombos:
-    print(meal)
-
-
-    
-
-
-
-
+#for meal in muesliCombos:
+#    print(meal)
