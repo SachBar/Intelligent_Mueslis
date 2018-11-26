@@ -137,7 +137,7 @@ class standardMeals:
         self.standardMeal = muesliCombos
         return muesliCombos
         
-    def generateCustomCombos(self, muesliCombos):
+    def generateCustomCombos(self, muesliCombos, diseaseIngs):
         numIng = len(muesliCombos) 
         cerealList = ['Oats', 'Crunchy', 'Cornflakes']
         meal1 = rd.sample(muesliCombos, int(numIng/2))
@@ -150,22 +150,28 @@ class standardMeals:
         if 'Oats' and 'Crunchy' and 'Cornflakes' not in meal3:
             meal3.append(rd.choice(cerealList))
         # Remove empty items
+        if diseaseIngs in meal1:
+            meal1.remove(diseaseIngs)
+        if diseaseIngs in meal2:
+            meal2.remove(diseaseIngs)
+        if diseaseIngs in meal3:
+            meal3.remove(diseaseIngs)
         meal1 = [x for x in meal1 if x.strip()]
         meal2 = [x for x in meal2 if x.strip()]
         meal3 = [x for x in meal3 if x.strip()]
         return set(meal1), set(meal2), set(meal3)   
-
-
-
-
-
-def sendRecommendation(meal1, meal2 , meal3):
-    mealRec = [list(meal1), list(meal2), list(meal3)]
-    print(mealRec)
-    return mealRec        
-
-
-
+        
+    def checkDisease(self, userDisease):
+        diseaseNuts = ['Disease_Peanuts', 'Disease_Almonds', 'Disease_Walnut',
+                       'Disease_Macadamia', 'Disease_Pecan nuts', 'Disease_Cashews']
+        foundDisease = []
+        for disease in userDisease.columns:
+            diseaseCols = userDisease.loc[lambda userDisease: userDisease[disease] == 1]
+            if(not diseaseCols.empty):
+                foundDisease.append(disease)     
+        for disease in diseaseNuts:
+            if disease in foundDisease:
+                return disease    
 
 ########################################################################################
     # This information needs to be stored in the server somewhat
@@ -210,8 +216,6 @@ def aprioriRules(binthreshold=7):
 
 ingredientRules = aprioriRules()
 
-
-
 def performClustering(cleanBreakfastDB, nProfiles=5):
     ingredients = ['Oats', 'Cornflakes', 'Crunchy', 'Peanuts',	'Almonds', 'Walnuts',	
            'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
@@ -236,11 +240,11 @@ def performClustering(cleanBreakfastDB, nProfiles=5):
     stdMeals.visualizeClustering()
 
     
-performClustering('cleanDatabase.csv')
+#performClustering('cleanDatabase.csv')
 # App calls this function whenever we want to recommend a meal (clustering) to a user
 
+
 """ User Profile must be in the form of a row in 'cleanDatabase.csv """
-""" Need a global variable called ingredients in server """
 def recommendMeal(userProfile):
     ingredients = ['Oats', 'Cornflakes', 'Crunchy', 'Peanuts',	'Almonds', 'Walnuts',	
        'Macadamia',	'Pecan nuts', 'Cashews', 'Chia seeds', 'Sunflower seeds', 
@@ -270,21 +274,15 @@ def recommendMeal(userProfile):
         reader = csv.reader(f)
         muesliClusters = list(reader)
 
-    muesliCombos = stdMeals.generateCustomCombos(muesliClusters[muesliGroup])
+    diseaseIngredients = stdMeals.checkDisease(diseaseDF)
+    muesliCombos = stdMeals.generateCustomCombos(muesliClusters[muesliGroup], diseaseIngredients)
     return muesliCombos
     
 """ Input from client/app """    
-userProfileData =  np.array([1,55,80,None,1,9,1,10,10,10,10,2,6,6,2,3,5,9,8,8,9,1,4,0,8]).reshape(1,25)
+userProfileData =  np.array([1,55,80,'Walnut',7,8,0,0,10,10,10,2,6,6,2,3,5,9,8,8,9,1,4,0,8], dtype=object).reshape(1,25)
 
 
 """ Output set from server """
 muesliCombos=recommendMeal(userProfileData)    
-#for meal in muesliCombos:
-#    print(meal)
-
-
-    
-
-
-
-
+for meal in muesliCombos:
+    print(meal)
