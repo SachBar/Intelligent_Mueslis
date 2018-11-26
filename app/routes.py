@@ -217,10 +217,17 @@ class standardMeals:
             meal3.append(rd.choice(cerealList))
         return set(meal1), set(meal2), set(meal3)
 
-def sendRecommendation(meal1, meal2 , meal3):
-    mealRec = [list(meal1), list(meal2), list(meal3)]
-    print(mealRec)
-    return mealRec
+    def checkDisease(self, userDisease):
+        diseaseNuts = ['Disease_Peanuts', 'Disease_Almonds', 'Disease_Walnut',
+                       'Disease_Macadamia', 'Disease_Pecan nuts', 'Disease_Cashews']
+        foundDisease = []
+        for disease in userDisease.columns:
+            diseaseCols = userDisease.loc[lambda userDisease: userDisease[disease] == 1]
+            if(not diseaseCols.empty):
+                foundDisease.append(disease)     
+        for disease in diseaseNuts:
+            if disease in foundDisease:
+                return disease    
 
 @app.route('/preprocess_database')
 def getDatabase(fileName="cleanDatabase.csv", skiprows=[], colsDrop=[]):
@@ -332,11 +339,16 @@ def recommendMeal(user_id):
     # User profile is now one-out-of-k coded
     stdMeals = standardMeals(clusterCentres, ingredients)
     muesliCluster, muesliGroup = stdMeals.predictMuesliCluster(clusterCentres, userProfileDF)
+    userProfileDF = pd.concat(DFs, axis=1)
+    # User profile is now one-out-of-k coded
+    stdMeals = standardMeals(clusterCentres, ingredients)
+    diseaseIngredients = stdMeals.checkDisease(diseaseDF)
+    muesliCluster, muesliGroup = stdMeals.predictMuesliCluster(clusterCentres, userProfileDF)
+    
     with open('data/muesliClusters.csv', 'r') as f:
         reader = csv.reader(f)
         muesliClusters = list(reader)
 
-    muesliCombos = stdMeals.generateCustomCombos(muesliClusters[muesliGroup])
-    
+    muesliCombos = stdMeals.generateCustomCombos(muesliClusters[muesliGroup], diseaseIngredients)
     return json.dumps(muesliCombos, cls=SetEncoder)
     
