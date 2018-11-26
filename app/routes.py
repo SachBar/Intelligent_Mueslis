@@ -257,6 +257,7 @@ def aprioriRules(binthreshold=7):
     Apriori = aprioriExtraction(breakfastDF, ingredients)
     AprioriDF = Apriori.getAprioriDF(binthreshold)
     ingredientRules = Apriori.aprioriFormat(AprioriDF)
+    ingredientRules.remove([])
     ingredientRulesDF = pd.DataFrame(ingredientRules)
     ingredientRulesDF.to_csv('aprioriIngredients.csv', index=False, header=False)
     return jsonify(
