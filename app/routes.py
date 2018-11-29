@@ -203,7 +203,7 @@ class standardMeals:
         self.standardMeal = muesliCombos
         return muesliCombos
 
-    def generateCustomCombos(self, muesliCombos):
+    def generateCustomCombos(self, muesliCombos, diseaseIngredients):
         numIng = len(muesliCombos)
         cerealList = ['Oats', 'Crunchy', 'Cornflakes']
         meal1 = rd.sample(muesliCombos, int(numIng/4))
