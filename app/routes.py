@@ -79,11 +79,12 @@ def apriori(proposition):
         #we make a recommandation if there are one element in the combination than in the choice of the user
         if (len(item_set) == len(proposition)+1 and set(proposition).issubset(item_set) == True):
             df_recommandation = df_recommandation.append(df.loc[i])
-            
-    df_recommandation["item"] = df_recommandation["item"].str.replace("'",'')
-    df_recommandation["item"] = df_recommandation["item"].str.replace("{",'')
-    df_recommandation["item"] = df_recommandation["item"].str.replace("}",'')
-    df_recommandation["item"] = df_recommandation.item.apply(lambda x: x[0:].split(', '))
+     
+     if (len(df_recommandation) > 0): 
+        df_recommandation["item"] = df_recommandation["item"].str.replace("'",'')
+        df_recommandation["item"] = df_recommandation["item"].str.replace("{",'')
+        df_recommandation["item"] = df_recommandation["item"].str.replace("}",'')
+        df_recommandation["item"] = df_recommandation.item.apply(lambda x: x[0:].split(', '))
     
     return df_recommandation.to_json(orient='records')
 
