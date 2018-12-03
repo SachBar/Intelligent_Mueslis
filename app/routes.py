@@ -66,7 +66,7 @@ def init_rb():
     )
 
 @app.route('/app/<proposition>',methods=['GET'])
-def apriori(proposition):
+def apriori_funtion(proposition):
     # Data Preprocessing
     df = pd.read_csv('data/df_ar.csv')
     proposition = proposition.split("-")
@@ -80,7 +80,7 @@ def apriori(proposition):
         if (len(item_set) == len(proposition)+1 and set(proposition).issubset(item_set) == True):
             df_recommandation = df_recommandation.append(df.loc[i])
      
-     if (len(df_recommandation) > 0): 
+    if (len(df_recommandation) > 0): 
         df_recommandation["item"] = df_recommandation["item"].str.replace("'",'')
         df_recommandation["item"] = df_recommandation["item"].str.replace("{",'')
         df_recommandation["item"] = df_recommandation["item"].str.replace("}",'')
