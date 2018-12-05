@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A113B586219D8D5000BB8F94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A113B585219D8D5000BB8F94 /* AppDelegate.m */; };
+		A113B589219D8D5000BB8F94 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A113B588219D8D5000BB8F94 /* ViewController.m */; };
+		A113B58C219D8D5000BB8F94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A113B58A219D8D5000BB8F94 /* Main.storyboard */; };
+		A113B58E219D8D5100BB8F94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A113B58D219D8D5100BB8F94 /* Assets.xcassets */; };
+		A113B591219D8D5100BB8F94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A113B58F219D8D5100BB8F94 /* LaunchScreen.storyboard */; };
+		A113B594219D8D5200BB8F94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A113B593219D8D5200BB8F94 /* main.m */; };
+		A113B59C219D8E1C00BB8F94 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = A113B59B219D8E1C00BB8F94 /* Connector.m */; };
+		A113B59F219DAC1200BB8F94 /* ConnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A113B59E219DAC1200BB8F94 /* ConnectedViewController.m */; };
+		A15B5FED21A2CEF1004F493A /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B5FEC21A2CEF1004F493A /* Server.m */; };
+		A15B5FF021A35B27004F493A /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B5FEF21A35B27004F493A /* PaymentViewController.m */; };
+		A166CC2321A878A600797034 /* MuesliMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = A166CC2221A878A600797034 /* MuesliMaker.m */; };
+		A17C1BAF21AC74540014563D /* MealsHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C1BAE21AC74540014563D /* MealsHistory.m */; };
+		A17C1BB221AC8D6D0014563D /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C1BB121AC8D6D0014563D /* HistoryViewController.m */; };
+		A1C421D121A5F732001FC13E /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C421D021A5F732001FC13E /* Ingredient.m */; };
+		A1E8654121AAF8DD007DE108 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E8654021AAF8DD007DE108 /* SuggestionViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A113B581219D8D5000BB8F94 /* MusliMakerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusliMakerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A113B584219D8D5000BB8F94 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A113B585219D8D5000BB8F94 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A113B587219D8D5000BB8F94 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A113B588219D8D5000BB8F94 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A113B58B219D8D5000BB8F94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A113B58D219D8D5100BB8F94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A113B590219D8D5100BB8F94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A113B592219D8D5200BB8F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A113B593219D8D5200BB8F94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A113B59A219D8E1C00BB8F94 /* Connector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
+		A113B59B219D8E1C00BB8F94 /* Connector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Connector.m; sourceTree = "<group>"; };
+		A113B59D219DAC1200BB8F94 /* ConnectedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectedViewController.h; sourceTree = "<group>"; };
+		A113B59E219DAC1200BB8F94 /* ConnectedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectedViewController.m; sourceTree = "<group>"; };
+		A15B5FEB21A2CEF1004F493A /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		A15B5FEC21A2CEF1004F493A /* Server.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		A15B5FEE21A35B27004F493A /* PaymentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		A15B5FEF21A35B27004F493A /* PaymentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		A166CC2121A878A600797034 /* MuesliMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuesliMaker.h; sourceTree = "<group>"; };
+		A166CC2221A878A600797034 /* MuesliMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuesliMaker.m; sourceTree = "<group>"; };
+		A17C1BAD21AC74540014563D /* MealsHistory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MealsHistory.h; sourceTree = "<group>"; };
+		A17C1BAE21AC74540014563D /* MealsHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MealsHistory.m; sourceTree = "<group>"; };
+		A17C1BB021AC8D6D0014563D /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		A17C1BB121AC8D6D0014563D /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		A1C421CF21A5F732001FC13E /* Ingredient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		A1C421D021A5F732001FC13E /* Ingredient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		A1E8653F21AAF8DD007DE108 /* SuggestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
+		A1E8654021AAF8DD007DE108 /* SuggestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A113B57E219D8D5000BB8F94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A113B578219D8D5000BB8F94 = {
+			isa = PBXGroup;
+			children = (
+				A113B583219D8D5000BB8F94 /* MusliMakerApp */,
+				A113B582219D8D5000BB8F94 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A113B582219D8D5000BB8F94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A113B581219D8D5000BB8F94 /* MusliMakerApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A113B583219D8D5000BB8F94 /* MusliMakerApp */ = {
+			isa = PBXGroup;
+			children = (
+				A113B584219D8D5000BB8F94 /* AppDelegate.h */,
+				A113B585219D8D5000BB8F94 /* AppDelegate.m */,
+				A17C1BAC21AC4E220014563D /* ViewControllers */,
+				A166CC2121A878A600797034 /* MuesliMaker.h */,
+				A166CC2221A878A600797034 /* MuesliMaker.m */,
+				A1C421CF21A5F732001FC13E /* Ingredient.h */,
+				A1C421D021A5F732001FC13E /* Ingredient.m */,
+				A113B59A219D8E1C00BB8F94 /* Connector.h */,
+				A113B59B219D8E1C00BB8F94 /* Connector.m */,
+				A15B5FEB21A2CEF1004F493A /* Server.h */,
+				A15B5FEC21A2CEF1004F493A /* Server.m */,
+				A17C1BAD21AC74540014563D /* MealsHistory.h */,
+				A17C1BAE21AC74540014563D /* MealsHistory.m */,
+				A113B58A219D8D5000BB8F94 /* Main.storyboard */,
+				A113B58D219D8D5100BB8F94 /* Assets.xcassets */,
+				A113B58F219D8D5100BB8F94 /* LaunchScreen.storyboard */,
+				A113B592219D8D5200BB8F94 /* Info.plist */,
+				A113B593219D8D5200BB8F94 /* main.m */,
+			);
+			path = MusliMakerApp;
+			sourceTree = "<group>";
+		};
+		A17C1BAC21AC4E220014563D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A113B587219D8D5000BB8F94 /* ViewController.h */,
+				A113B588219D8D5000BB8F94 /* ViewController.m */,
+				A1E8653F21AAF8DD007DE108 /* SuggestionViewController.h */,
+				A1E8654021AAF8DD007DE108 /* SuggestionViewController.m */,
+				A113B59D219DAC1200BB8F94 /* ConnectedViewController.h */,
+				A113B59E219DAC1200BB8F94 /* ConnectedViewController.m */,
+				A15B5FEE21A35B27004F493A /* PaymentViewController.h */,
+				A15B5FEF21A35B27004F493A /* PaymentViewController.m */,
+				A17C1BB021AC8D6D0014563D /* HistoryViewController.h */,
+				A17C1BB121AC8D6D0014563D /* HistoryViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A113B580219D8D5000BB8F94 /* MusliMakerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A113B597219D8D5200BB8F94 /* Build configuration list for PBXNativeTarget "MusliMakerApp" */;
+			buildPhases = (
+				A113B57D219D8D5000BB8F94 /* Sources */,
+				A113B57E219D8D5000BB8F94 /* Frameworks */,
+				A113B57F219D8D5000BB8F94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusliMakerApp;
+			productName = MusliMakerApp;
+			productReference = A113B581219D8D5000BB8F94 /* MusliMakerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A113B579219D8D5000BB8F94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Jacob Fiskaali Hertz";
+				TargetAttributes = {
+					A113B580219D8D5000BB8F94 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = A113B57C219D8D5000BB8F94 /* Build configuration list for PBXProject "MusliMakerApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A113B578219D8D5000BB8F94;
+			productRefGroup = A113B582219D8D5000BB8F94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A113B580219D8D5000BB8F94 /* MusliMakerApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A113B57F219D8D5000BB8F94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A113B591219D8D5100BB8F94 /* LaunchScreen.storyboard in Resources */,
+				A113B58E219D8D5100BB8F94 /* Assets.xcassets in Resources */,
+				A113B58C219D8D5000BB8F94 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A113B57D219D8D5000BB8F94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C421D121A5F732001FC13E /* Ingredient.m in Sources */,
+				A113B589219D8D5000BB8F94 /* ViewController.m in Sources */,
+				A113B59C219D8E1C00BB8F94 /* Connector.m in Sources */,
+				A113B594219D8D5200BB8F94 /* main.m in Sources */,
+				A113B59F219DAC1200BB8F94 /* ConnectedViewController.m in Sources */,
+				A15B5FED21A2CEF1004F493A /* Server.m in Sources */,
+				A1E8654121AAF8DD007DE108 /* SuggestionViewController.m in Sources */,
+				A166CC2321A878A600797034 /* MuesliMaker.m in Sources */,
+				A15B5FF021A35B27004F493A /* PaymentViewController.m in Sources */,
+				A113B586219D8D5000BB8F94 /* AppDelegate.m in Sources */,
+				A17C1BAF21AC74540014563D /* MealsHistory.m in Sources */,
+				A17C1BB221AC8D6D0014563D /* HistoryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A113B58A219D8D5000BB8F94 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A113B58B219D8D5000BB8F94 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A113B58F219D8D5100BB8F94 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A113B590219D8D5100BB8F94 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A113B595219D8D5200BB8F94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A113B596219D8D5200BB8F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A113B598219D8D5200BB8F94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XE8H36G4D;
+				INFOPLIST_FILE = MusliMakerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiskaali.MusliMakerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A113B599219D8D5200BB8F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XE8H36G4D;
+				INFOPLIST_FILE = MusliMakerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiskaali.MusliMakerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A113B57C219D8D5000BB8F94 /* Build configuration list for PBXProject "MusliMakerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A113B595219D8D5200BB8F94 /* Debug */,
+				A113B596219D8D5200BB8F94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A113B597219D8D5200BB8F94 /* Build configuration list for PBXNativeTarget "MusliMakerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A113B598219D8D5200BB8F94 /* Debug */,
+				A113B599219D8D5200BB8F94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A113B579219D8D5000BB8F94 /* Project object */;
+}
